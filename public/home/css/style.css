@@ -9,7 +9,9 @@ body {
   background-color: #ffffff;
   overflow-x: hidden;
 }
-
+#logincss {
+  margin-right: 10px;
+}
 .layout_padding {
   padding: 70px 0;
 }
