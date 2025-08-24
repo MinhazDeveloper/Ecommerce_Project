@@ -27,10 +27,10 @@
                 <a class="nav-link" href="contact.html">Contact</a>
                 </li>
                 <li class="nav-item">
-                <a class="btn btn-primary" id="logincss" href="contact.html">Login</a>
+                <a class="btn btn-primary" id="logincss" href="{{ route('login') }}">Login</a>
                 </li>
                 <li class="nav-item">
-                <a class="btn btn-success" href="contact.html">Register</a>
+                <a class="btn btn-success" href="{{ route('register') }}">Register</a>
                 </li>
                 
                 <form class="form-inline">
