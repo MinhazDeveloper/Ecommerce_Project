@@ -26,13 +26,41 @@
                 <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                 <a class="btn btn-primary" id="logincss" href="{{ route('login') }}">Login</a>
                 </li>
                 <li class="nav-item">
                 <a class="btn btn-success" href="{{ route('register') }}">Register</a>
-                </li>
-                
+                </li> -->
+                <!--  -->
+                <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
+                @if (Route::has('login'))
+                <nav class="flex items-center justify-end gap-4">
+                    @auth
+                    <a
+                        href="{{ route('login') }}"
+                        class="btn btn-primary"
+                    >
+                        Log out
+                    </a>
+                @else
+                    <a
+                        href="{{ route('login') }}"
+                        class="btn btn-primary"
+                    >
+                        Log in
+                    </a>     
+                    <a
+                        href="{{ route('register') }}"
+                        class="btn btn-success">
+                        Register
+                    </a>
+                            
+                    @endauth
+                </nav>
+                @endif
+                </header>
+                <!--  -->
                 <form class="form-inline">
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
                 <i class="fa fa-search" aria-hidden="true"></i>
