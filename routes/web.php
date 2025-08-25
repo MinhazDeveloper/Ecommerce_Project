@@ -16,5 +16,8 @@ Route::middleware([
     })->name('dashboard');
 });
 Route::get('/redirect',[HomeController::class,'redirect']);
-Route::get('/view_category',[AdminController::class,'view_category']);
-Route::post('/add_category',[AdminController::class,'add_category'])->name('add.category');
+Route::get('/view_category',[AdminController::class,'view_category'])->name('category.view');
+Route::post('/category_add',[AdminController::class,'category_add'])->name('category.add');
+Route::get('/category/edit/{id}',[AdminController::class,'categoryEdit'])->name('category.edit');
+Route::put('/category/update/{id}',[AdminController::class,'categoryUpdate'])->name('category.update');
+Route::delete('/category/delete/{id}',[AdminController::class,'categoryDelete'])->name('category.delete');
