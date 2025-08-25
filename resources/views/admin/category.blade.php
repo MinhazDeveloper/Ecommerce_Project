@@ -30,15 +30,36 @@
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_navbar.html -->
         @include('admin.header')
-        <!-- partial -->
-         <!-- main panel -->
-         @include('admin.main_panel')
-        <!-- main-panel ends -->
-         <!-- footer -->
-         @include('admin.footer')
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
+        <div class="content-wrapper">
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+        <div class="row">
+            <div class="col-12 text-center">
+                        <h2 class="text-white mb-4">Add Category</h2>
+
+                        <form action="{{ route('add.category') }}" method="POST" class="d-flex justify-content-center">
+                            @csrf
+                            <input 
+                                type="text" 
+                                name="category_name" 
+                                class="form-control w-25 me-2" 
+                                placeholder="Write category name" 
+                                required
+                            >
+                            <button type="submit" class="btn btn-outline-light">
+                                Add Category
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- page-body-wrapper ends -->
+        </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
     @include('admin.script')
