@@ -6,12 +6,13 @@
         </h2>
     </div>
     <div class="row">
+        @foreach($products as $product)
         <div class="col-sm-6 col-md-4 col-lg-4">
             <div class="box">
                 <div class="option_container">
                 <div class="options">
                     <a href="" class="option1">
-                    Men's Shirt
+                    Add To Cart
                     </a>
                     <a href="" class="option2">
                     Buy Now
@@ -23,15 +24,16 @@
                 </div>
                 <div class="detail-box">
                 <h5>
-                    Men's Shirt
+                    {{$product->title}}
                 </h5>
                 <h6>
-                    $75
+                    {{$product->price}}
                 </h6>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-4">
+        @endforeach
+        <!-- <div class="col-sm-6 col-md-4 col-lg-4">
             <div class="box">
                 <div class="option_container">
                 <div class="options">
@@ -55,8 +57,8 @@
                 </h6>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-4">
+        </div> -->
+        <!-- <div class="col-sm-6 col-md-4 col-lg-4">
             <div class="box">
                 <div class="option_container">
                 <div class="options">
@@ -305,7 +307,7 @@
                 </h6>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="btn-box">
         <a href="">
