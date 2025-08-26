@@ -21,6 +21,8 @@ Route::middleware([
 
     // Redirect after login
     Route::get('/redirect', [HomeController::class, 'redirect'])->name('redirect');
+    // Route::get('/add_cart', [HomeController::class, 'addCart'])->name('redirect');
+
 
     // Category routes
     Route::prefix('category')->controller(AdminController::class)->group(function () {
@@ -37,5 +39,7 @@ Route::middleware([
         Route::post('/store', 'productStore')->name('product.store');
         Route::get('/show', 'productShow')->name('product.show');
     });
-
+    //product route (home)
+    // Route::get('product/details',[HomeController::class,'productDetails'])->name('product.details');
+    Route::get('/product/details/{id}', [HomeController::class, 'productDetails'])->name('product.details');
 });
