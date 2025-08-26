@@ -68,4 +68,9 @@ class AdminController extends Controller
         'message'=>'Product saved successfully'
        ]);
     }
+    public function productShow(){
+
+        $products = Product::all();
+        return view('admin.product_show',compact('products'));
+    }
 }
