@@ -43,4 +43,5 @@ Route::middleware([
     // Route::get('product/details',[HomeController::class,'productDetails'])->name('product.details');
     Route::get('/product/details/{id}', [HomeController::class, 'productDetails'])->name('product.details');
     Route::post('/product/add/cart/{id}', [HomeController::class, 'productAddCart'])->name('product.add_cart');
+    Route::get('/product/cart_show', [HomeController::class, 'cart_show'])->name('product.cart_show');
 });

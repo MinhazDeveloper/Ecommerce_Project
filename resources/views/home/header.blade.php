@@ -26,6 +26,9 @@
                 <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
                 </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{{route('product.cart_show')}}">Cart</a>
+                </li>
                 <!-- <li class="nav-item">
                 <a class="btn btn-primary" id="logincss" href="{{ route('login') }}">Login</a>
                 </li>

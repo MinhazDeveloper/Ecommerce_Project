@@ -65,4 +65,9 @@ class HomeController extends Controller
             return redirect('login');
         }
     }
+    public function cart_show(){
+
+        $cartItems = Cart::all();
+        return view('home.cart_show',compact('cartItems'));
+    }
 }
