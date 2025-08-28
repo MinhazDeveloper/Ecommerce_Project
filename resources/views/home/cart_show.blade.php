@@ -78,12 +78,12 @@
 </table>
 
 <div class="total">
-    Total Price : {{ $cartItems->sum(fn($item) => $item->price * $item->quantity) }}
+    Total Price : {{$totalprice}}
 </div>
 <div>
     <h1>Proceed to order</h1>
     <a href="{{route('cash_order')}}" class="btn btn-danger">Cash on delivery</a>
-    <a href="" class="btn btn-danger">Pay using card</a>
+    <a href="{{route('stripe',$totalprice)}}" class="btn btn-danger">Pay using card</a>
 </div>
 </body>
 </html>

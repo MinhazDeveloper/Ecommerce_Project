@@ -6,10 +6,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Order;
+use Stripe\Stripe;
+use Stripe\Charge;
 
 
 class HomeController extends Controller
@@ -67,9 +70,14 @@ class HomeController extends Controller
         }
     }
     public function cart_show(){
-
+        
         $cartItems = Cart::all();
-        return view('home.cart_show',compact('cartItems'));
+
+        $totalprice = $cartItems->sum(function($item){
+        return $item->price * $item->quantity;
+        });
+        
+        return view('home.cart_show',compact('cartItems', 'totalprice'));
     }
     public function remove_cart($id){
 
@@ -108,5 +116,38 @@ class HomeController extends Controller
                 'message'=>'Order added successfully'
             ]);
         }
+    }
+    public function stripe($totalprice){
+
+        return view('home.stripe',compact('totalprice'));
+    }
+    // public function stripePost(Request $request){
+    //     dd($request);
+    //     Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+    //     Stripe\Charge::create ([
+    //             "amount" => 100 * 100,
+    //             "currency" => "usd",
+    //             "source" => $request->stripeToken,
+    //             "description" => "Test payment from itsolutionstuff.com." 
+
+    //     ]);
+    //     Session::flash('success', 'Payment successful!');
+    //     return back();
+
+    // }
+     public function stripePost(Request $request){
+        // dd($request);
+        Stripe::setApiKey(env('STRIPE_SECRET')); // secret key server-side
+
+        $charge = Charge::create([
+            "amount" => 100 * 100, // 100 USD in cents
+            "currency" => "usd",
+            "source" => $request->stripeToken, // client-side token
+            "description" => "Test payment from Laravel."
+        ]);
+
+        Session::flash('success', 'Payment successful!');
+        return back();
     }
 }
