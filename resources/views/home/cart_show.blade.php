@@ -63,7 +63,7 @@
                 <td>{{ $item->price }}</td>
                 <td><img class="product-img" src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}"></td>
                 <td>
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ route('product.remove_cart', $item->id) }}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="remove-btn">Remove Product</button>

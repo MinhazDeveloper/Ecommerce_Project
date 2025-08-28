@@ -70,4 +70,15 @@ class HomeController extends Controller
         $cartItems = Cart::all();
         return view('home.cart_show',compact('cartItems'));
     }
+    public function remove_cart($id){
+
+        $cart = Cart::find($id)
+                ->delete();
+                
+        return response()->json([
+            'status'=>'success',
+            'message'=>'Deleted product from Add to cart'
+        ]);        
+
+    }
 }
