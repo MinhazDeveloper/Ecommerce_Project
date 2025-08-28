@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Order;
 
 
 class HomeController extends Controller
@@ -74,11 +75,38 @@ class HomeController extends Controller
 
         $cart = Cart::find($id)
                 ->delete();
-                
+
         return response()->json([
             'status'=>'success',
             'message'=>'Deleted product from Add to cart'
         ]);        
 
+    }
+    public function cash_order(){
+
+        $user = Auth::User();
+        $user_id = $user->id;
+        // dd($user_id);
+        $data = Cart::where('user_id',$user_id)->get();
+        foreach($data as $data){
+            Order::create([
+                'name'=>$data->name,
+                'email'=>$data->email,
+                'phone'=>$data->phone,
+                'address'=>$data->address,
+                'user_id'=>$data->user_id,
+                'product_title'=>$data->product_title,
+                'quantity'=>$data->quantity,
+                'price'=>$data->price,
+                'image'=>$data->image,
+                'product_id'=>$data->product_id,
+                'payment_status'=>'Cash on delivery',
+                'delivery_status'=>'processing'
+            ]);
+
+            return response()->json([
+                'message'=>'Order added successfully'
+            ]);
+        }
     }
 }

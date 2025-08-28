@@ -45,4 +45,7 @@ Route::middleware([
     Route::post('/product/add/cart/{id}', [HomeController::class, 'productAddCart'])->name('product.add_cart');
     Route::get('/product/cart_show', [HomeController::class, 'cart_show'])->name('product.cart_show');
     Route::delete('/product/remove_cart/{id}', [HomeController::class, 'remove_cart'])->name('product.remove_cart');
+
+    //order
+    Route::get('/cash_order',[HomeController::class,'cash_order'])->name('cash_order');
 });

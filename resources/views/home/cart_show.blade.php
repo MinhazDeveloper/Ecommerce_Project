@@ -3,6 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- for bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <title>Shopping Cart</title>
     <style>
         table {
@@ -77,6 +80,10 @@
 <div class="total">
     Total Price : {{ $cartItems->sum(fn($item) => $item->price * $item->quantity) }}
 </div>
-
+<div>
+    <h1>Proceed to order</h1>
+    <a href="{{route('cash_order')}}" class="btn btn-danger">Cash on delivery</a>
+    <a href="" class="btn btn-danger">Pay using card</a>
+</div>
 </body>
 </html>
