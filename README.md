@@ -1,5 +1,6 @@
 A fully functional Ecommerce Web Application built with PHP Laravel framework.
 This project covers the core features of an online shop including product listing, cart system, checkout, and order management.
+
 🚀 Features
 
 ✅ User Authentication (Register / Login)
@@ -9,11 +10,17 @@ This project covers the core features of an online shop including product listin
 ✅ Category & Subcategory Management
 
 ✅ Shopping Cart System
+
 ✅ Add to Cart, Update, Remove Items
+
 ✅ Checkout with Billing Information
+
 ✅ Order Placement & Order History
+
 ✅ Admin Dashboard for managing products, users, and orders
+
 ✅ Responsive UI with Bootstrap
+
 ✅ Secure Payment Integration (Stripe/PayPal if added)
 
 🛠️ Tech Stack
