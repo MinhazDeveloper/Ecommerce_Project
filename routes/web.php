@@ -21,8 +21,6 @@ Route::middleware([
 
     // Redirect after login
     Route::get('/redirect', [HomeController::class, 'redirect'])->name('redirect');
-    // Route::get('/add_cart', [HomeController::class, 'addCart'])->name('redirect');
-
 
     // Category routes
     Route::prefix('category')->controller(AdminController::class)->group(function () {
@@ -33,24 +31,26 @@ Route::middleware([
         Route::delete('/delete/{id}', 'categoryDelete')->name('category.delete');
     });
 
-    // Product routes
-    Route::prefix('product')->controller(AdminController::class)->group(function () {
-        Route::get('/index', 'product')->name('product');
-        Route::post('/store', 'productStore')->name('product.store');
-        Route::get('/show', 'productShow')->name('product.show');
-    });
-    //product route (home)
-    // Route::get('product/details',[HomeController::class,'productDetails'])->name('product.details');
-    Route::get('/product/details/{id}', [HomeController::class, 'productDetails'])->name('product.details');
-    Route::post('/product/add/cart/{id}', [HomeController::class, 'productAddCart'])->name('product.add_cart');
-    Route::get('/product/cart_show', [HomeController::class, 'cart_show'])->name('product.cart_show');
-    Route::delete('/product/remove_cart/{id}', [HomeController::class, 'remove_cart'])->name('product.remove_cart');
+    Route::prefix('product')->group(function () {
+        // Admin
+        Route::controller(AdminController::class)->group(function () {
+            Route::get('/index', 'product')->name('product.index');
+            Route::post('/store', 'productStore')->name('product.store');
+            Route::get('/show', 'productShow')->name('product.show');
+        });
+        // User
+        Route::controller(HomeController::class)->group(function () {
+            Route::get('/details/{id}', 'productDetails')->name('product.details');
+            Route::post('/add/cart/{id}', 'productAddCart')->name('product.add_cart');
+            Route::get('/cart_show', 'cart_show')->name('product.cart_show');
+            Route::delete('/remove_cart/{id}', 'remove_cart')->name('product.remove_cart');
+        });
 
+    });
     //order
     Route::get('/cash_order',[HomeController::class,'cash_order'])->name('cash_order');
     //payment
     Route::get('/stripe/{totalprice}',[HomeController::class,'stripe'])->name('stripe');
     Route::post('/stripe',[HomeController::class,'stripePost'])->name('stripe.post');
-    
 
 });
