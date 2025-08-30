@@ -1,6 +1,28 @@
 A fully functional Ecommerce Web Application built with PHP Laravel framework.
 This project covers the core features of an online shop including product listing, cart system, checkout, and order management.
+🚀 Features
 
+✅ User Authentication (Register / Login)
+✅ Product Management (CRUD operations for Admin)
+✅ Category & Subcategory Management
+✅ Shopping Cart System
+✅ Add to Cart, Update, Remove Items
+✅ Checkout with Billing Information
+✅ Order Placement & Order History
+✅ Admin Dashboard for managing products, users, and orders
+✅ Responsive UI with Bootstrap
+✅ Secure Payment Integration (Stripe/PayPal if added)
+🛠️ Tech Stack
+
+Backend: Laravel (PHP)
+
+Frontend: Blade Templates, Bootstrap, JavaScript
+
+Database: MySQL
+
+Authentication: Laravel Jetstream
+
+Payment Gateway: Stripe
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
