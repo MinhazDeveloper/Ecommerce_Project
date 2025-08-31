@@ -79,4 +79,12 @@ class AdminController extends Controller
         $orders = Order::all();
         return view('admin.orders_show',compact('orders'));
     }
+    public function delivered($id){
+
+        Order::where('id',$id)->update([
+            'delivery_status'=>'delivered'
+        ]);
+
+        return redirect()->back();
+    }
 }

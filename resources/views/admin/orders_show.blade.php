@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Latest Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <meta charset="UTF-8">
     <title>All Orders</title>
     <style>
@@ -57,6 +60,7 @@
                 <th>Payment Status</th>
                 <th>Delivery Status</th>
                 <th>Image</th>
+                <th>Delivered</th>
             </tr>
         </thead>
         <tbody>
@@ -73,6 +77,9 @@
                     <td>{{ $order->delivery_status }}</td>
                     <td>
                         <img src="{{ asset('storage/product/'.$order->image) }}" alt="product image">
+                    </td>
+                    <td>
+                        <a href="{{route('delivered',$order->id)}}" class="btn btn-primary">Delivered</a>
                     </td>
                 </tr>
             @endforeach
