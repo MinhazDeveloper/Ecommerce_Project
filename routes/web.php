@@ -51,6 +51,7 @@ Route::middleware([
     Route::get('/cash_order',[HomeController::class,'cash_order'])->name('cash_order');
     Route::get('/orders_show',[AdminController::class,'orders_show']);
     Route::get('/delivered/{id}',[AdminController::class,'delivered'])->name('delivered');
+    Route::get('/print_pdf/{id}',[AdminController::class,'print_pdf'])->name('print_pdf');
 
     //payment
     Route::get('/stripe/{totalprice}',[HomeController::class,'stripe'])->name('stripe');

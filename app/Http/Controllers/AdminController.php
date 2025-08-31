@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
+// use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade\Pdf; // ঠিকঠাক import
+
 use Illuminate\Http\Request;
+// use PDF;
 
 class AdminController extends Controller
 {
@@ -86,5 +90,11 @@ class AdminController extends Controller
         ]);
 
         return redirect()->back();
+    }
+    public function print_pdf($id){
+
+        $order = Order::find($id);
+        $pdf = PDF::loadView('admin.pdf',compact('order'));
+        return $pdf->download('order_details.pdf');
     }
 }

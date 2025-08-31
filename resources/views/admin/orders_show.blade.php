@@ -61,6 +61,7 @@
                 <th>Delivery Status</th>
                 <th>Image</th>
                 <th>Delivered</th>
+                <th>Print Pdf</th>
             </tr>
         </thead>
         <tbody>
@@ -80,6 +81,9 @@
                     </td>
                     <td>
                         <a href="{{route('delivered',$order->id)}}" class="btn btn-primary">Delivered</a>
+                    </td>
+                    <td>
+                        <a href="{{route('print_pdf',$order->id)}}" class="btn btn-primary">Pdf</a>
                     </td>
                 </tr>
             @endforeach
