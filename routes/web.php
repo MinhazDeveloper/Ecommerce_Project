@@ -49,6 +49,7 @@ Route::middleware([
     });
     //order
     Route::get('/cash_order',[HomeController::class,'cash_order'])->name('cash_order');
+    Route::get('orders_show',[AdminController::class,'orders_show']);
     //payment
     Route::get('/stripe/{totalprice}',[HomeController::class,'stripe'])->name('stripe');
     Route::post('/stripe',[HomeController::class,'stripePost'])->name('stripe.post');

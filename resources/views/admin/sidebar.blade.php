@@ -74,7 +74,7 @@
         </a>
         <div class="collapse" id="ui-basic">
             <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{route('product')}}">Add Products</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('product.index')}}">Add Products</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{route('product.show')}}">Show Products</a></li>
             </ul>
         </div>
@@ -85,6 +85,14 @@
             <i class="mdi mdi-playlist-play"></i>
             </span>
             <span class="menu-title">Category</span>
+        </a>
+        </li>
+        <li class="nav-item menu-items">
+        <a class="nav-link" href="{{url('orders_show')}}">
+            <span class="menu-icon">
+            <i class="mdi mdi-playlist-play"></i>
+            </span>
+            <span class="menu-title">Order</span>
         </a>
         </li>
     </ul>
