@@ -1,3 +1,4 @@
+
 A fully functional Ecommerce Web Application built with PHP Laravel framework.
 This project covers the core features of an online shop including product listing, cart system, checkout, and order management.
 
@@ -37,11 +38,30 @@ Payment Gateway: Stripe
 
 ## ⚙️ Installation
 
-Clone the repository:
-
 ```bash
-git clone https://github.com/yourusername/ecommerce-project.git
-cd ecommerce-project
+# Clone the repo
+git clone https://github.com/your-username/your-repo-name.git
+
+# Enter project folder
+cd your-repo-name
+
+# Install PHP dependencies
+composer install
+
+# Install Node dependencies
+npm install && npm run dev
+
+# Copy environment file
+cp .env.example .env
+
+# Generate app key
+php artisan key:generate
+
+# Run migrations
+php artisan migrate
+
+# Serve the application
+php artisan serve
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
